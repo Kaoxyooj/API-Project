@@ -4,13 +4,14 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Force Kayaks</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+
+    <div style="background-color:lightskyblue" class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -18,33 +19,52 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                @*@Html.ActionLink("Force Kayaks", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
             </div>
             <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                    @if (User.IsInRole("admin"))
+                @if (!User.IsInRole("admin") && User.Identity.IsAuthenticated)
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
+                        <li>@Html.ActionLink("Force Kayaks", "Index", "YakInventories")</li>
+                        <li>@Html.ActionLink("Force Yaks", "Index", "Yak2Inventory")</li>
+                    </ul>
+                }
+                @if (User.IsInRole("admin"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                        <li>@Html.ActionLink("Locations", "Index", "Locations")</li>
+                        <li>@Html.ActionLink("Force Kayaks", "Index", "YakInventories")</li>
+                        <li>@Html.ActionLink("Force Yaks", "Index", "Yak2Inventory")</li>
+                    </ul>
+                }
+                @*@if (User.IsInRole("admin"))
                     {
-                        <li>@Html.ActionLink("Force Contacts", "Index", "Contacts")</li>
-                        <li>@Html.ActionLink("Force Orders", "Index", "Orders")</li>
-                        <li>@Html.ActionLink("Force Accounts", "Index", "AccountsForce")</li>
-                        <li>@Html.ActionLink("Force Contracts", "Index", "Contracts")</li>
-                        <li>@Html.ActionLink("Force Products", "Index", "Product2")</li>
-                        <li>@Html.ActionLink("Force Order Products", "Index", "OrderItems")</li>
-                    }
+                        <ul class="nav navbar-nav">
+                            <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                            <li>@Html.ActionLink("About", "About", "Home")</li>
+                            <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                            <li>@Html.ActionLink("Force Contacts", "Index", "Contacts")</li>
+                            <li>@Html.ActionLink("Force Orders", "Index", "Orders")</li>
+                            <li>@Html.ActionLink("Force Accounts", "Index", "AccountsForce")</li>
+                            <li>@Html.ActionLink("Force Contracts", "Index", "Contracts")</li>
+                            <li>@Html.ActionLink("Force Products", "Index", "Product2")</li>
+                            <li>@Html.ActionLink("Force Order Products", "Index", "OrderItems")</li>
+                        </ul>
+                    }*@
 
-                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        <hr/>
+        <footer class="row bottom-left" style="position:fixed;bottom:0;">
+            <p>&copy; @DateTime.Now.Year - Force Kayaks</p>
         </footer>
     </div>
 

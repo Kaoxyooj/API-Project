@@ -3,7 +3,59 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@if (User.IsInRole("admin"))
+{
+    <div class="jumbotron row">
+        <div class="col-md-2 text-center">
+            <h3>Accounts</h3>
+            <p>
+                <a href="http://localhost:19536/AccountsForce" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-briefcase"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Contracts</h3>
+            <p>
+                <a href="http://localhost:19536/Contracts" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-folder-close"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Products</h3>
+            <p>
+                <a href="http://localhost:19536/Product2" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-cloud"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Order</h3>
+            <p>
+                <a href="http://localhost:19536/OrderItems" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-credit-card"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Bill Details</h3>
+            <p>
+                <a href="http://localhost:19536/Orders" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-barcode"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Contacts</h3>
+            <p>
+                <a href="http://localhost:19536/Contacts" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-phone"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+}
 <h2>Force Accounts</h2>
 
 <p>

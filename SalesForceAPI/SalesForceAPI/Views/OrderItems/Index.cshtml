@@ -3,13 +3,65 @@
 @{
     ViewBag.Title = "Index";
 }
-
+@if (User.IsInRole("admin"))
+{
+    <div class="jumbotron row text-center">
+        <div class="col-md-2">
+            <h3>Accounts</h3>
+            <p>
+                <a href="http://localhost:19536/AccountsForce" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-briefcase"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Contracts</h3>
+            <p>
+                <a href="http://localhost:19536/Contracts" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-folder-close"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Products</h3>
+            <p>
+                <a href="http://localhost:19536/Product2" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-cloud"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Order</h3>
+            <p>
+                <a href="http://localhost:19536/OrderItems" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-credit-card"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Bill Details</h3>
+            <p>
+                <a href="http://localhost:19536/Orders" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-barcode"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Contacts</h3>
+            <p>
+                <a href="http://localhost:19536/Contacts" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-phone"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+}
 <h2>Force Order Products</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @*@Html.ActionLink("Create New", "Create")*@
 
-    <a href = "https://na30.salesforce.com/_ui/busop/orderitem/SelectSearch?addTo=80136000000PG6j&retURL=%2F80136000000PG6j"> Sales</a>
+    <a href = "https://na30.salesforce.com/801/o"target="_blank">Make an order</a>
 </p>
 <table class="table">
     <tr>
@@ -26,16 +78,13 @@
             @Html.DisplayNameFor(model => model.UnitPrice)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.LastModifiedDate)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.OrderItemNumber)
         </th>
-        <th></th>
-    </tr>
+        <th></th>       
+    </tr>  
 
 @foreach (var item in Model) {
     <tr>
@@ -50,10 +99,7 @@
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.UnitPrice)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>     
+        </td>  
         <td>
             @Html.DisplayFor(modelItem => item.LastModifiedDate)
         </td>
@@ -61,11 +107,12 @@
             @Html.DisplayFor(modelItem => item.OrderItemNumber)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
             @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
         </td>
     </tr>
 }
 
 </table>
+<p>Queued for Shipping</p>

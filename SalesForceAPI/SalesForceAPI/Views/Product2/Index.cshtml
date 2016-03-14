@@ -3,12 +3,64 @@
 @{
     ViewBag.Title = "Index";
 }
+@if (User.IsInRole("admin"))
+{
+    <div class="jumbotron row">
+        <div class="col-md-2 text-center">
+            <h3>Accounts</h3>
+            <p>
+                <a href="http://localhost:19536/AccountsForce" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-briefcase"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Contracts</h3>
+            <p>
+                <a href="http://localhost:19536/Contracts" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-folder-close"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Products</h3>
+            <p>
+                <a href="http://localhost:19536/Product2" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-cloud"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Order</h3>
+            <p>
+                <a href="http://localhost:19536/OrderItems" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-credit-card"></span>
+                </a>
+            </p>
+        </div>
+        <div  class="col-md-2 text-center">
+            <h3>Bill Details</h3>
+            <p>
+                <a href="http://localhost:19536/Orders" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-barcode"></span>
+                </a>
+            </p>
+        </div>
+        <div class="col-md-2 text-center">
+            <h3>Contacts</h3>
+            <p>
+                <a href="http://localhost:19536/Contacts" class="btn btn-primary btn-block">
+                    <span class="glyphicon glyphicon-phone"></span>
+                </a>
+            </p>
+        </div>
+    </div>
+}
+<h2>Products</h2>
 
-<h2>Index</h2>
-
-<p>
+@*<p>
     @Html.ActionLink("Create New", "Create")
-</p>
+</p>*@
 <table class="table">
     <tr>
         <th>
@@ -21,13 +73,7 @@
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.IsActive)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.CreatedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.CreatedById)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.LastModifiedDate)
@@ -35,22 +81,6 @@
         <th>
             @Html.DisplayNameFor(model => model.LastModifiedById)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.SystemModstamp)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Family)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.IsDeleted)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastViewedDate)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LastReferencedDate)
-        </th>
-        <th></th>
     </tr>
 
 @foreach (var item in Model) {
@@ -65,13 +95,7 @@
             @Html.DisplayFor(modelItem => item.Description)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.IsActive)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.CreatedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.CreatedById)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.LastModifiedDate)
@@ -80,24 +104,9 @@
             @Html.DisplayFor(modelItem => item.LastModifiedById)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.SystemModstamp)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Family)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.IsDeleted)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastViewedDate)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.LastReferencedDate)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) 
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
         </td>
     </tr>
 }

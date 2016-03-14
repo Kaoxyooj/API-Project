@@ -35,5 +35,11 @@ namespace SalesForceAPI.Models
         public System.Data.Entity.DbSet<SalesForceAPI.Models.Salesforce1.Order> Orders { get; set; }
 
         public System.Data.Entity.DbSet<SalesForceAPI.Models.Salesforce1.OrderItem> OrderItems { get; set; }
+
+        public System.Data.Entity.DbSet<SalesForceAPI.Models.YakInventory> YakInventories { get; set; }
+
+        public System.Data.Entity.DbSet<SalesForceAPI.Models.Location> Locations { get; set; }
+
+        public System.Data.Entity.DbSet<SalesForceAPI.Models.Yak2Inventory> Yak2Inventory { get; set; }
     }
 }

@@ -15,9 +15,9 @@ using Salesforce.Common.Models;
 namespace SalesForceAPI.Controllers
 {
     public class OrdersController : Controller
-    {// Note: the SOQL Field list, and Binding Property list have subtle differences as custom properties may be mapped with the JsonProperty attribute to remove __c
+    {
         const string _OrdersPostBinding = "Id,OriginalOrderId, AccountId, Name,TotalAmount";
-        // GET: Orders
+
         public async Task<ActionResult> Index()
         {
             IEnumerable<Order> selectedOrders = Enumerable.Empty<Order>();

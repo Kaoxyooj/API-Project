@@ -23,9 +23,6 @@
         <th>
             @Html.DisplayNameFor(model => model.Qty)
         </th>
-        @*<th>
-                @Html.DisplayNameFor(model => model.LocationId)
-            </th>*@
         <th></th>
     </tr>
 
@@ -41,9 +38,6 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Qty)
             </td>
-            @*<td>
-                    @Html.DisplayFor(modelItem => item.LocationId)
-                </td>*@
             <td>
                 @if (User.IsInRole("admin"))
                 {
@@ -60,7 +54,8 @@
                     { <a href="https://na30.salesforce.com/801/o" target="_blank" style="background-color:red" class="btn btn-primary btn-block">Qty LOW! Order More!</a> }
                 }
             </td>
-        </tr>
+            <td></td>
+        </tr>      
     }
 
 </table>

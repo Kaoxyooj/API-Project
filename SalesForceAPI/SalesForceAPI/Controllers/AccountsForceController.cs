@@ -16,9 +16,7 @@ namespace SalesForceAPI.Controllers
 {
     public class AccountsForceController : Controller
     {
-        // Note: the SOQL Field list, and Binding Property list have subtle differences as custom properties may be mapped with the JsonProperty attribute to remove __c
         const string _AccountsPostBinding = "Id, Name, BillingStreet, BillingCity, BillingState, BillingPostalCode, BillingCountry";
-        // GET: Accounts
         public async Task<ActionResult> Index()
         {
             IEnumerable<Account> selectedAccounts = Enumerable.Empty<Account>();

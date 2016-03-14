@@ -16,9 +16,8 @@ namespace SalesForceAPI.Controllers
 {
     public class ContractsController : Controller
     {
-        // Note: the SOQL Field list, and Binding Property list have subtle differences as custom properties may be mapped with the JsonProperty attribute to remove __c
         const string _ContractsPostBinding = "Id, StartDate, ContractTerm, ContractNumber";
-        // GET: Contracts
+
         public async Task<ActionResult> Index()
         {
             IEnumerable<Contract> selectedContracts = Enumerable.Empty<Contract>();

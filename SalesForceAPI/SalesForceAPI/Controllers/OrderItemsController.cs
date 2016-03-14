@@ -16,9 +16,8 @@ namespace SalesForceAPI.Controllers
 {
     public class OrderItemsController : Controller
     {
-        // Note: the SOQL Field list, and Binding Property list have subtle differences as custom properties may be mapped with the JsonProperty attribute to remove __c
         const string _OrderItemsPostBinding = "Id, OrderId,Description, Quantity, UnitPrice, OriginalOrderItemId, OrderItemNumber, LastModifiedDate";
-        // GET: OrderItems
+
         public async Task<ActionResult> Index()
         {
             IEnumerable<OrderItem> selectedOrderItems = Enumerable.Empty<OrderItem>();
